@@ -1,0 +1,158 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body, html{
+  font-size: 32px;
+  font-family: 'VT323', monospace;
+  overflow: hidden;
+  height: 100%;
+  color: white;
+}
+.container{
+  background-image: url('./images/background.png');
+  height: 100%;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.dialogue-box{
+  height: 30vh;
+  width: 100%;
+  position: absolute;
+  bottom: .3em;
+  background-image: url('./images/dialogue-box.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transform: translateY(100vh);
+  animation: .5s 1s forwards dialogue-box-in;
+}
+@keyframes dialogue-box-in{
+  from{transform: translateY(100vh);}
+  to{transform: translateY(0)}
+}
+.dialogue-box span{
+  width: 230px;
+  height: 45px;
+  text-align: center;
+  background-color: yellow;
+  color: black;
+  position: absolute;
+  right: 1.5em;
+  top: -1.5em;
+  cursor: pointer;
+  border: solid 2px black;
+  font-size: 1.2rem;
+}
+.dialogue-box span:hover,
+.dialogue-box span:active{
+  text-decoration: underline;
+}
+.dad{
+  height: 100%;
+  position: absolute;
+  bottom: -3em;
+  left: 5em;
+}
+.dadAnimationIn{
+  opacity: 0;
+  animation: 1s .5s forwards dad-in;
+}
+@keyframes dad-in{
+  from{opacity: 0;transform: scale(0.9);}
+  to{opacity: 1;transform: scale(1);}
+}
+.dad-talking{
+  height: 100%;
+  position: absolute;
+  bottom: -3em;
+  left: 5em; 
+  animation: 1s infinite dad-talking;
+  display: none;
+}
+@keyframes dad-talking{
+  0%{transform: translateY(0);}
+  50%{transform: translateY(.2em);}
+  110%{transform: translateY(-.2em);}
+}
+.dialogue{
+  height: 85%;
+  padding: .7em 2em 0 1.5em;
+  overflow: auto;
+}
+h3{
+  color: yellow;
+}
+.typing{
+  position: absolute;
+  top: 1.9em;
+  bottom: 0;
+  left: 1em;
+  width: 96%;
+}
+.typing p{
+  position: relative;
+  clear: both;
+  float: right;
+  width:0;
+  background: #85582F;
+  animation: typing 1.5s .5s steps(50, end);
+  animation-fill-mode: both;
+}
+.typing p:nth-child(2) {
+  animation-delay: 2s;
+}
+.typing p:nth-child(3) {
+  animation-delay: 3.5s;
+}
+.typing p:nth-child(4) {
+  animation-delay: 5s;
+}
+@keyframes typing {
+  from { width: 100% }
+  to { width: 0% }
+}
+@media only screen and (max-width: 700px) {
+  .container{
+    background-position: -20em 0;
+  }
+  .dad{
+    height: 95%;
+    position: static;
+    padding-top: 3.5em;
+    margin: 0 auto;
+    display: block;
+  }
+  .dad-talking{
+    height: 95%;
+    position: static;
+    padding-top: 3.5em;
+    margin: 0 auto;
+    display: block;
+  }
+  .dialogue{
+    padding: .2em .5em 0 .7em;
+    line-height: 1em;
+    margin-top: .4em;
+  }
+  h3{
+    font-size: 1.1rem;
+  }
+  .dialogue p{
+    font-size: .8rem;
+  }
+  .dialogue-box span{
+    width: 200px;
+    height: 40px;
+    right: .5em;
+    top: -1.4em;
+    font-size: 1rem;
+  }
+  .typing{
+    top: 1.8em;
+    bottom: 0;
+    left: .4em;
+    width: 94%;
+  }
+}
